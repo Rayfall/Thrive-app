@@ -1,0 +1,29 @@
+{
+  "name": "thrive_backend",
+  "version": "1.0.0",
+  "description": "Thrive back end application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rayfall/Thrive_BackEnd.git"
+  },
+  "author": "Andrew T. Grant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rayfall/Thrive_BackEnd/issues"
+  },
+  "homepage": "https://github.com/Rayfall/Thrive_BackEnd#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.12",
+    "morgan": "^1.10.0",
+    "node": "^14.2.0",
+    "nodemon": "^2.0.3"
+  }
+}
