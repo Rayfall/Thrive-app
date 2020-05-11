@@ -7,8 +7,8 @@ const getAll = (req, res) => {
     });
 }
 
-const getByTitle = (req, res) => {
-    Task.findOne({title: req.params.title}, req.body).then(task => {
+const getById = (req, res) => {
+    Task.findOne({_id: req.params.id}, req.body).then(task => {
         res.json(task);
     });
 }
@@ -34,7 +34,7 @@ const deleteById = (req, res) => {
 
 module.exports = {
     getAll,
-    getByTitle,
+    getById,
     createTask,
     updateTask,
     deleteById
