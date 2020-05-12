@@ -6,6 +6,12 @@ const api = axios.create({
 
 export const secret = async () => {
     const resp = await api.get("/api/secret");
-    console.log("secret: ", resp)
+    console.log("secret: ", resp);
     return resp.data;
 };
+
+export const getTasks = async () => {
+    const resp = await api.get("/api/tasks/");
+    console.log("Tasks: ", resp);
+    return resp.data;
+}
