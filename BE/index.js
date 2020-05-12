@@ -5,6 +5,10 @@ const cookieParser = require('cookie-parser');
 const withAuth = require('./middleware/middleware');
 const app = express();
 
+app.use(parser.json());
+app.use(parser.urlencoded({ extended: true }));
+app.use(cors());
+
 app.get("/", (req, res) => {
     res.status(200).json({
         "status": 200,
@@ -18,10 +22,6 @@ app.get('/api/secret', function(req, res) {
 
 const taskRouter = require('./routes/task-routes');
 const authRouter = require('./routes/auth-routes.js');
-
-app.use(parser.json());
-app.use(parser.urlencoded({ extended: true }));
-app.use(cors());
 
 app.use('/api/tasks/', taskRouter);
 app.use('/api/auth/', authRouter);
