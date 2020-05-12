@@ -16,8 +16,12 @@ app.get("/", (req, res) => {
     });    
 });
 
-app.get('/api/secret', function(req, res) {
+app.get('/api/secret', withAuth, function(req, res) {
   res.send('The password is potato');
+});
+
+app.get('/checkToken', withAuth, function(req, res) {
+  res.sendStatus(200);
 });
 
 const taskRouter = require('./routes/task-routes');
