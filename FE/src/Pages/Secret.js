@@ -1,20 +1,20 @@
-export default class Home extends Component {
-    constructor() {
-      super();
-      //Set default message
-      this.state = {
-        message: 'Loading...'
-      }
-    }  componentDidMount() {
-      //GET message from server using fetch api
-      fetch('https://thrive-app-be.herokuapp.com//api/secret')
-        .then(res => res.text())
-        .then(res => this.setState({message: res}));
-    }  render() {
-      return (
+import React, { useContext } from "react";
+
+import { DataContext } from "../App";
+
+export default function Secret() {
+    const data = useContext(DataContext);
+    let message = data;
+
+    if(message == null){
+        message = "loading..."
+    }
+    
+    return (
         <div>
           <h1>Secret</h1>
-          <p>{this.state.message}</p>
+          <p>Working on it..</p>
         </div>
-      );
-    }}
+    );
+
+}
