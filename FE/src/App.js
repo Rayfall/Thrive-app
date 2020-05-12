@@ -1,11 +1,27 @@
-import React from 'react';
-import './App.css';
+import React, { useState, createContext } from 'react';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
+import Home from './Pages/Home';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import './Styles/App.css';
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Thrive</h1>
+    <Router>
+      <div className="App">
+      <div className="nav">
+        <Header />
+      </div>
+      <main>
+        <Switch>
+          <Route path="/" exact component={Home}/>          
+        </Switch>
+      </main>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
+    </Router>    
   );
 }
 
