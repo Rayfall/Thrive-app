@@ -5,7 +5,7 @@ import { DataContext } from "../App";
 export default function Secret() {
     const data = useContext(DataContext);
     let message = data;
-
+    console.log(message.secretCode);
     if(message == null){
         message = "loading..."
     }
@@ -13,7 +13,7 @@ export default function Secret() {
     return (
         <div>
           <h1>Secret</h1>
-          <p>Working on it..</p>
+          <p>{message.secretCode}</p>
         </div>
     );
 
