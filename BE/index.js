@@ -7,6 +7,7 @@ const app = express();
 
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors());
 
 app.get("/", (req, res) => {
