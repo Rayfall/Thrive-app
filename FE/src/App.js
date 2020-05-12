@@ -29,11 +29,11 @@ export default function App() {
         </header>
         <main>
           <Switch>
+            <Route path="/" exact component={Home}/>            
+            <Route path="/login" component={Login} />
             <DataContext.Provider value={{secretCode}}>
               <Route path="/secret" render={() => <Secret/>} />
-            </DataContext.Provider>
-            <Route path="/" exact component={Home}/>            
-            <Route path="/login" component={Login} />      
+            </DataContext.Provider>                  
           </Switch>
         </main>
         <footer className="footer">

@@ -20,7 +20,9 @@ const taskRouter = require('./routes/task-routes');
 const authRouter = require('./routes/auth-routes.js');
 
 app.use(parser.json());
+app.use(parser.urlencoded({ extended: true }));
 app.use(cors());
+
 app.use('/api/tasks/', taskRouter);
 app.use('/api/auth/', authRouter);
 
