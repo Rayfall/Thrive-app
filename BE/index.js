@@ -8,8 +8,11 @@ app.get("/", (req, res) => {
     res.status(200).json({
         "status": 200,
         "msg" : "server is up and running"
-    });
-    
+    });    
+});
+
+app.get('/api/secret', function(req, res) {
+  res.send('The password is potato');
 });
 
 const taskRouter = require('./routes/task-routes');
