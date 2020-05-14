@@ -59,6 +59,12 @@ const createTaskForGroup = (req, res) => {
     });
 }
 
+const getTasksForGroup = (req, res) => {
+    Group.findOne({id: req.params.id}).then(group => {
+        res.json(group.tasks);
+    });
+}
+
 const getUsersInGroup = (req, res) => {
     Group.findOne({id: req.params.id}).then(group => {
         res.json(group.users);
@@ -91,6 +97,8 @@ const removeUsersFromGroup = (req, res) => {
     })
 }
 
+
+
 module.exports = {
     getAllGroups,
     getGroupById,
@@ -98,6 +106,7 @@ module.exports = {
     changeGroupName,
     deleteGroup,
     createTaskForGroup,
+    getTasksForGroup,
     getUsersInGroup,
     addUsersToGroup,
     removeUsersFromGroup

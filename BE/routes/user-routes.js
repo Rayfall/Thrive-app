@@ -23,6 +23,7 @@ router.delete('/delete/:id', userController.deleteUser);
 
 //-----For Tasks-------
 router.post('/task/', userController.createTaskForUser);
+router.get('/getTasks/', userController.getUserTasks);
 //router.put('/task/send/:id', userController.sendTaskToUser);
 //router.put('/task/remove/:id', userController.deleteTaskFromUser);
 

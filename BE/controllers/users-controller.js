@@ -147,6 +147,12 @@ const createTaskForUser = (req, res) => {
     });
 }
 
+const getUserTasks = (req, res) => {
+    User.findOne({id: req.params.id}).then(user => {
+        res.json(user.tasks);
+    });
+}
+
 module.exports = {
     getUserName,
     updateUserById,
@@ -156,5 +162,6 @@ module.exports = {
     getAllUsers,
     createNewUser,
     authenticateUser,
-    userAuthentication
+    userAuthentication,
+    getUserTasks
 }
