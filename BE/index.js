@@ -2,7 +2,6 @@ const express = require('express');
 const parser = require("body-parser");
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const withAuth = require('./middleware/middleware');
 const app = express();
 
 app.use(parser.json());
@@ -17,19 +16,15 @@ app.get("/", (req, res) => {
     });    
 });
 
-app.get('/api/secret', withAuth, function(req, res) {
-  res.send('The password is potato');
-});
-
-app.get('/checkToken', withAuth, function(req, res) {
-  res.sendStatus(200);
-});
-
 const taskRouter = require('./routes/task-routes');
-const authRouter = require('./routes/auth-routes.js');
+const authRouter = require('./routes/auth-routes');
+const userRouter = require('./routes/user-routes');
+const groupRouter = require('./routes/group-routes');
 
 app.use('/api/tasks/', taskRouter);
 app.use('/api/auth/', authRouter);
+app.use('/api/users/', userRouter);
+app.use('/api/groups/', groupRouter);
 
 app.set("port", process.env.PORT || 3000);
 

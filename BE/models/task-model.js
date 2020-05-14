@@ -7,14 +7,13 @@ const subSchema = new Schema ({
 
 const itemSchema = new Schema ({
     item: String,
+    isPriority: Boolean,
     subtasks: [subSchema]
 })
 
 const taskSchema = new Schema ({
     title: String,
-    //date-created
-    //date-modified
-    //is-priority
+    isPriority: Boolean,
     items: [itemSchema]
 });
 

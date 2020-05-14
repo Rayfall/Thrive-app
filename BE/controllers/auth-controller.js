@@ -1,5 +1,7 @@
 const Auth = require('../models/auth-model');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const secret = process.env.SECRET;
 
 const createNewUser = (req, res) => {
     const { email, password } = req.body;
@@ -11,7 +13,15 @@ const createNewUser = (req, res) => {
         } else {
           res.status(200).send("Welcome to Thrive!");
         }
-      });
+    });
+}
+
+const testSecret = (req, res) => {
+    res.send('The password is potato');
+}
+
+const tokenCheck = (req, res) => {
+    res.sendStatus(200);
 }
 
 const authenticateUser = (req, res) => {
@@ -56,5 +66,7 @@ const authenticateUser = (req, res) => {
 
 module.exports = {
     createNewUser,
-    authenticateUser
+    authenticateUser,
+    testSecret,
+    tokenCheck
 }
