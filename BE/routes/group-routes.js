@@ -16,7 +16,6 @@ router.delete('/delete/', groupController.deleteGroup);
 router.post('/task/', groupController.createTaskForGroup);
 router.get('/getTasks/', groupController.getTasksForGroup);
 
-
 //-------For Users------------
 router.get('/users/', groupController.getUsersInGroup);
 router.put('/addUsers/', groupController.addUsersToGroup);
