@@ -1,5 +1,5 @@
 .background-header {
-    padding: 30px 0px;
+    padding: 20px 0px;
     background-color: #ffffff;
     text-align: center;
     color: #5637F0;
@@ -7,9 +7,58 @@
 }
 
 .logo-div {
-    padding: 20px;
+    padding: 10px;
 }
 
 .logo-img {
     width: 45%;
+}
+
+.login-div {
+    position: absolute;
+    top: 27px;
+    left: 70%;
+}
+.login-img {
+    width: 35%;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    line-height: 1.5em;
+}
+
+.nav a:hover {
+    color: #DF523A;
+}
+
+@media (min-width: 724px) {
+    .logo-img {
+        width: 25%;
+    }
+
+    .login-div {
+        position: absolute;
+        top: 27px;
+        left: 90%;
+    }
+    .login-img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo-img {
+        width: 25%;
+    }
+
+    .login-div {
+        position: absolute;
+        top: 27px;
+        left: 90%;
+    }
+    .login-img {
+        width: 50%;
+    }
 }
