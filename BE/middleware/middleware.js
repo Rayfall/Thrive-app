@@ -1,19 +1,19 @@
-const jwt = require('jsonwebtoken');
-const secret = process.env.SECRET;
+const jwt = require('jsonwebtoken')
+const config = require('config')
 
-const withAuth = function(req, res, next) {
-  const token = req.cookies.token;  if (!token) {
-    res.status(401).send('Unauthorized: No token provided');
-  } else {
-    jwt.verify(token, secret, function(err, decoded) {
-      if (err) {
-        res.status(401).send('Unauthorized: Invalid token');
-      } else {
-        req.email = decoded.email;
+module.exports = function(req, res, next){
+    // Get token from the header
+    const token = req.header('x-auth-token');
+    
+    //Check if not token
+    if(!token){
+        return res.status(401).json({msg:'No token, authorization denied'});
+    }
+    try {
+        const decoded = jwt.verify(token, config.get('jwtSecret'));
+        req.user = decoded.user;
         next();
-      }
-    });
-  }
+    } catch (error) {
+        res.status(401).json({msg: 'Token is not valid'})
+    }
 }
-
-module.exports = withAuth;

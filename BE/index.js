@@ -17,12 +17,10 @@ app.get("/", (req, res) => {
 });
 
 const taskRouter = require('./routes/task-routes');
-const authRouter = require('./routes/auth-routes');
 const userRouter = require('./routes/user-routes');
 const groupRouter = require('./routes/group-routes');
 
 app.use('/api/tasks/', taskRouter);
-app.use('/api/auth/', authRouter);
 app.use('/api/users/', userRouter);
 app.use('/api/groups/', groupRouter);
 
