@@ -2,7 +2,6 @@ const Task = require('../models/task-model');
 
 
 const getAllTasks = (req, res) => {
-    console.log("In all tasks...")
     Task.find({}).then(tasks => {
         res.json(tasks);
     });
@@ -28,13 +27,7 @@ const createTask = (req, res) => {
 }
 
 const updateTaskById = (req, res) => {
-    console.log( req.params.id);
     Task.findOneAndUpdate({_id: req.params.id}, req.body).then(task => {
-        console.log("This is task: ", task)
-        console.log("Body Title: ", req.body.title)
-        //req.body.title.push(task._id)
-        //task.isPriority.push(task._id)
-        //task.items.push(task._id)
         res.json(task);
     }).catch(err => {
         res.json(err)
@@ -42,7 +35,6 @@ const updateTaskById = (req, res) => {
 }
 
 const deleteTaskById = (req, res) => {
-    console.log("In the delete...");
     Task.remove({_id: req.params.id }).then(data => {
         res.json(data)
     }).catch(err => {
