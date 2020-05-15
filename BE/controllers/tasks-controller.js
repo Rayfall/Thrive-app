@@ -29,12 +29,13 @@ const createTask = (req, res) => {
 
 const updateTaskById = (req, res) => {
     console.log( req.params.id);
-    Task.findOneAndUpdate({_id: req.params.id}).then(task => {
+    Task.findOneAndUpdate({_id: req.params.id}, req.body).then(task => {
         console.log("This is task: ", task)
         console.log("Body Title: ", req.body.title)
-        req.body.title.push(task._id)
+        //req.body.title.push(task._id)
         //task.isPriority.push(task._id)
         //task.items.push(task._id)
+        res.json(task);
     }).catch(err => {
         res.json(err)
     });
