@@ -28,6 +28,7 @@ const createTask = (req, res) => {
 }
 
 const updateTaskById = (req, res) => {
+    console.log( req.params.id);
     Task.updateOne({_id: req.params.id}).then(task => {
         task.title.push(task._id)
         task.isPriority.push(task._id)
