@@ -8,6 +8,7 @@ import Group from './Pages/Group';
 import Friends from './Pages/Friends';
 import Task from './Pages/Tasks';
 import Login from './Pages/Login';
+import Signup from './Pages/Signup';
 import { getAllTasks  } from './api/api-helper'
 import './Styles/App.css';
 
@@ -36,6 +37,7 @@ export default function App() {
             <DataContext.Provider value={{allTasks}}>
               <Route path="/" exact component={Home}/>            
               <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
               <Route path="/tasks" render={() => <Task/>} />
               <Route path="/friends" component={Friends} />
               <Route path="/groups" component={Group} />
