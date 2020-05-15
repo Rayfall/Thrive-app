@@ -37,6 +37,7 @@ const updateTaskById = (req, res) => {
 }
 
 const deleteTaskById = (req, res) => {
+    console.log("In the delete...");
     Task.remove({_id: req.params.id }).then(data => {
         res.json(data)
     }).catch(err => {

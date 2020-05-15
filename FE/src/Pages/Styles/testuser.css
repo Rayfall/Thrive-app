@@ -1,0 +1,38 @@
+.user-body {
+    padding-top: 5px;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.user-body li {
+    list-style-type: none;
+}
+
+.user-body img {
+    width: 30%;
+}
+
+.user-body a {
+    text-decoration: none;
+    color: black;
+}
+
+.user-body a:hover {
+    color: #FF6047;
+}
+
+@media (min-width: 1024px) {
+    .user-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .user-body img {
+        max-width: 10%;
+    }
+}

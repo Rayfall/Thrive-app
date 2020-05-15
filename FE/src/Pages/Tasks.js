@@ -1,49 +1,35 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
+import Views from '../Components/ViewTasks';
+import Form from '../Components/Form';
+import {} from '../api/api-helper'
 
 import { DataContext } from "../App";
 
 export default function Task() {
-    const data = useContext(DataContext);
-    console.log(data)
-    if(data.allTasks == null){
-        return (
-            <>
-               <h1>Task Page</h1>
-            </>
-        )
-    }
-    else {
-        let tasks = data.allTasks.map((task,index)=>{
-            if(task.items == null){
-                return <h2 key={index}>{task.title}</h2>;
-            } else {
-                let items = task.items.map((item,index) => {
-                    if(item.subtasks == null){
-                        return <li key={index}>{item.item}</li>
-                    } else {
-                        let subitems = item.subtasks.map((task,index)=> {
-                            return <li key={index}>{task.subtask}</li>
-                        })
-                        return (
-                            <li key={index}>{item.item}
-                                <ul>{subitems}</ul>
-                            </li>
-                        )
-                    }
-                })
-                return (
-                    <h2 key={index}>{task.title}
-                        <ul>{items}</ul>
-                    </h2>
-                );
-            }        
-        });
-        return (
-        <>
-           <h1>Task Page</h1>
-           {tasks}
-        </>
-        );
+    const [listItems, setListItems] = useState(useContext(DataContext))
+
+    const handleSubmit = item => {
+        setListItems([...listItems.allTasks, item])
     }
 
+    const handleUpdateListItem = item => {
+
+    }
+
+    const handleRemoveListItem = item => {
+        const listItemsArr = listItems.allTasks.filter((task, index) => {
+          return task !== item;
+        });
+
+        setListItems(listItemsArr);
+    }
+    console.log(listItems.allTasks)
+
+    return(
+        <div>
+            <h1>Task Page</h1>
+            <Form handleSubmitFromApp={handleSubmit} placeholderText={'Add A New Task...'}/>
+            <Views handleRemoveListItem={handleRemoveListItem} listItems={listItems.allTasks}/>
+        </div>
+    )
 }

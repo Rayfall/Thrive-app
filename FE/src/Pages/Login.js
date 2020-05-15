@@ -12,9 +12,6 @@ export default function Login() {
         event.preventDefault();
         //createUser(email, password);
         authenticateUser(email, password);
-        console.log('Authentication coming soon!');
-        console.log("Email: ", email);
-        console.log("Password: ", password);
         history.push("/home");
     }
 
