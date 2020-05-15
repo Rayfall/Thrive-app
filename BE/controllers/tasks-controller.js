@@ -2,6 +2,7 @@ const Task = require('../models/task-model');
 
 
 const getAllTasks = (req, res) => {
+    console.log("In all tasks...")
     Task.find({}).then(tasks => {
         res.json(tasks);
     });
