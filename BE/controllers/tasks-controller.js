@@ -32,7 +32,7 @@ const updateTaskById = (req, res) => {
     Task.findOneAndUpdate({_id: req.params.id}).then(task => {
         console.log("This is task: ", task)
         console.log("Body Title: ", req.body.title)
-        task.title.push(task._id)
+        req.body.title.push(task._id)
         //task.isPriority.push(task._id)
         //task.items.push(task._id)
     }).catch(err => {
