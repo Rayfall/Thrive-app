@@ -27,16 +27,20 @@ const createTask = (req, res) => {
 }
 
 const updateTaskById = (req, res) => {
-    Task.findByIdAndUpdate(req.params.id).then(task => {
+    Task.updateOne({_id: req.params.id}).then(task => {
         task.title.push(task._id)
         task.isPriority.push(task._id)
         task.items.push(task._id)
+    }).catch(err => {
+        res.json(err)
     });
 }
 
 const deleteTaskById = (req, res) => {
-    Task.findOneAndDelete(req.params.id).then(task => {
-        res.json(task);
+    Task.remove({_id: req.params.id }).then(data => {
+        res.json(data)
+    }).catch(err => {
+        res.json(err)
     });
 }
 

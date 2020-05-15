@@ -15,7 +15,7 @@ export default function Task() {
     else {
         let tasks = data.allTasks.map((task,index)=>{
             if(task.items == null){
-                return <h3 key={index}>{task.title}</h3>;
+                return <h2 key={index}>{task.title}</h2>;
             } else {
                 let items = task.items.map((item,index) => {
                     if(item.subtasks == null){
@@ -32,9 +32,9 @@ export default function Task() {
                     }
                 })
                 return (
-                    <h3 key={index}>{task.title}
+                    <h2 key={index}>{task.title}
                         <ul>{items}</ul>
-                    </h3>
+                    </h2>
                 );
             }        
         });
