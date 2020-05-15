@@ -4,6 +4,9 @@ import Home from './Pages/Home';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import User from './Pages/User';
+import Group from './Pages/Group';
+import Friends from './Pages/Friends';
+import Task from './Pages/Tasks';
 import Login from './Pages/Login';
 import { getAllTasks  } from './api/api-helper'
 import './Styles/App.css';
@@ -33,7 +36,10 @@ export default function App() {
             <DataContext.Provider value={{allTasks}}>
               <Route path="/" exact component={Home}/>            
               <Route path="/login" component={Login} />
-              <Route path="/secret" render={() => <User/>} />
+              <Route path="/tasks" render={() => <Task/>} />
+              <Route path="/friends" component={Friends} />
+              <Route path="/groups" component={Group} />
+              <Route path="/user" render={() => <User/>} />
             </DataContext.Provider>                  
           </Switch>
         </main>
