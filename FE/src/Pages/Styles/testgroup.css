@@ -1,3 +1,14 @@
 .group-button {
-    
+    height: 20px;
+    padding-left: 10px;
+}
+
+.group-list {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    list-style-type: none;
 }

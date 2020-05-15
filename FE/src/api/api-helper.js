@@ -58,7 +58,22 @@ export const getUserTasks = async (user) => {
 export const getAllTasks = async () => {
     const resp = await api.get("/api/tasks/");
     return resp.data;
-};
+}
+
+export const deleteTask = async (id) => {
+    const resp = await api.delete("/api/tasks/delete", id);
+    return resp.data;
+}
+
+export const updateTask = async (id) => {
+    const resp = await api.put("/api/tasks/update", id);
+    return resp.data;
+}
+
+export const createTask = async (item) => {
+    const resp = await api.post("/api/tasks/task", item);
+    return resp.data;
+}
 
 
 

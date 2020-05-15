@@ -1,15 +1,31 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Views from '../Components/ViewTasks';
 import Form from '../Components/Form';
-import {} from '../api/api-helper'
+import { deleteTask, updateTask, createTask } from '../api/api-helper'
 
 import { DataContext } from "../App";
 
 export default function Task() {
     const [listItems, setListItems] = useState(useContext(DataContext))
+    const [itemData, setItemData] = useState({});
 
-    const handleSubmit = item => {
-        setListItems([...listItems.allTasks, item])
+    useEffect(() => {
+        if(itemData && itemData.length) {
+            handleCreateTask(itemData);
+        }
+    },[itemData]);
+
+    const handleSubmit = title => {
+        setItemData([{title}]);
+        handleCreateTask();
+    }
+
+    const handleCreateTask = async () => {
+        const json = await createTask(itemData);
+    }
+
+    const handleDeleteTask = async () => {
+        const json = await deleteTask(itemData);
     }
 
     const handleUpdateListItem = item => {
@@ -20,7 +36,7 @@ export default function Task() {
         const listItemsArr = listItems.allTasks.filter((task, index) => {
           return task !== item;
         });
-
+        handleDeleteTask(item);
         setListItems(listItemsArr);
     }
     console.log(listItems.allTasks)
